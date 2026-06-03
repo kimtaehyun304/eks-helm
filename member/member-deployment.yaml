@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: member-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: member
+  template:
+    metadata:
+      labels:
+        app: member
+    spec:
+      containers:
+        - name: member
+          image: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/member:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5004

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: item-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: item
+  template:
+    metadata:
+      labels:
+        app: item
+    spec:
+      containers:
+        - name: item
+          image: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/item:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5003

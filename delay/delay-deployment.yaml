@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delay-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: delay
+  template:
+    metadata:
+      labels:
+        app: delay
+    spec:
+      containers:
+        - name: delay
+          image: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/delay:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5006
