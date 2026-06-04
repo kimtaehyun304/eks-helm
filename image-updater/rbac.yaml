@@ -13,12 +13,17 @@ rules:
   resources: ["imageupdaters"]
   verbs: ["get", "list", "watch"]
 
-# Argo CD Applications (🔥 핵심 추가)
+# ImageUpdater status update
+- apiGroups: ["argocd-image-updater.argoproj.io"]
+  resources: ["imageupdaters/status"]
+  verbs: ["update", "patch"]
+
+# Argo CD Applications
 - apiGroups: ["argoproj.io"]
   resources: ["applications"]
   verbs: ["get", "list", "watch"]
 
-# events (optional)
+# events (optional but recommended)
 - apiGroups: [""]
   resources: ["events"]
   verbs: ["create", "patch"]
