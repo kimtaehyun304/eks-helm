@@ -5,9 +5,9 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: delay=277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/delay
-    argocd-image-updater.argoproj.io/myapp.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/delay.update-strategy: newest-build
     argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/git-branch: master
 spec:
   project: default
   source:
