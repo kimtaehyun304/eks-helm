@@ -8,12 +8,17 @@ rules:
   resources: ["leases"]
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 
-# ImageUpdater CRD access (핵심 추가)
+# ImageUpdater CRD
 - apiGroups: ["argocd-image-updater.argoproj.io"]
   resources: ["imageupdaters"]
   verbs: ["get", "list", "watch"]
 
-# optional (안전)
+# Argo CD Applications (🔥 핵심 추가)
+- apiGroups: ["argoproj.io"]
+  resources: ["applications"]
+  verbs: ["get", "list", "watch"]
+
+# events (optional)
 - apiGroups: [""]
   resources: ["events"]
   verbs: ["create", "patch"]
