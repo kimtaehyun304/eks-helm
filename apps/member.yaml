@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: member
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: member=277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/member
+    argocd-image-updater.argoproj.io/myapp.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/kimtaehyun304/eks-helm.git
+    targetRevision: master
+    path: member
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
