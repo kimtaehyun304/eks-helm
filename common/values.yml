@@ -1,0 +1,12 @@
+replicaCount: 1
+
+image:
+  repository: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/common
+  tag: latest
+  pullPolicy: Always
+
+service:
+  port: 80
+  targetPort: 5005
+
+containerPort: 5005
