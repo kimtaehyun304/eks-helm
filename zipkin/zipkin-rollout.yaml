@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: zipkin
 spec:
-  replicas: 2
+  replicas: 1
 
   strategy:
     canary:
@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: zipkin
-          image: openzipkin/zipkin:3.6.1
+          image: openzipkin/zipkin:3.5.1
           ports:
             - containerPort: 9411
 
