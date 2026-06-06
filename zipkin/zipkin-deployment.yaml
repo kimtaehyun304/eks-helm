@@ -1,37 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: zipkin
-spec:
-  replicas: 0
-  selector:
-    matchLabels:
-      app: zipkin
-  template:
-    metadata:
-      labels:
-        app: zipkin
-    spec:
-      containers:
-        - name: zipkin
-          image: openzipkin/zipkin:3
-          ports:
-            - containerPort: 9411
-          env:
-            - name: STORAGE_TYPE
-              value: elasticsearch
-
-            - name: ES_HOSTS
-              value: https://search-tama-search-l2pzlt5ldkyp2g737dcvpyectm.ap-northeast-2.es.amazonaws.com
-
-            - name: ES_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: opensearch-secret
-                  key: username
-
-            - name: ES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: opensearch-secret
-                  key: password
+#apiVersion: apps/v1
+#kind: Deployment
+#metadata:
+#  name: zipkin
+#spec:
+#  replicas: 0
+#  selector:
+#    matchLabels:
+#      app: zipkin
+#  template:
+#    metadata:
+#      labels:
+#        app: zipkin
+#    spec:
+#      containers:
+#        - name: zipkin
+#          image: openzipkin/zipkin:3
+#          ports:
+#            - containerPort: 9411
+#          env:
+#            - name: STORAGE_TYPE
+#              value: elasticsearch
+#
+#            - name: ES_HOSTS
+#              value: https://search-tama-search-l2pzlt5ldkyp2g737dcvpyectm.ap-northeast-2.es.amazonaws.com
+#
+#            - name: ES_USERNAME
+#              valueFrom:
+#                secretKeyRef:
+#                  name: opensearch-secret
+#                  key: username
+#
+#            - name: ES_PASSWORD
+#              valueFrom:
+#                secretKeyRef:
+#                  name: opensearch-secret
+#                  key: password
