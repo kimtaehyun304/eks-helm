@@ -1,22 +1,39 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   name: zipkin
 spec:
-  replicas: 0
+  replicas: 2
+
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause:
+            duration: 30s
+
+        - setWeight: 50
+        - pause:
+            duration: 30s
+
+        - setWeight: 100
+
   selector:
     matchLabels:
       app: zipkin
+
   template:
     metadata:
       labels:
         app: zipkin
+
     spec:
       containers:
         - name: zipkin
           image: openzipkin/zipkin:3
           ports:
             - containerPort: 9411
+
           env:
             - name: STORAGE_TYPE
               value: elasticsearch
