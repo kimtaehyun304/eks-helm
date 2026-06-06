@@ -3,7 +3,7 @@ kind: Rollout
 metadata:
   name: zipkin
 spec:
-  replicas: 2
+  replicas: 1
 
   strategy:
     canary:
