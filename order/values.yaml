@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 2
 
 image:
   repository: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/order
