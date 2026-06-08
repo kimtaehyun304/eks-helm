@@ -4,5 +4,5 @@ helm:
     value: 277707114689.dkr.ecr.ap-northeast-2.amazonaws.com/tama-api/order
     forcestring: true
   - name: image.tag
-    value: 8c69c6c599fd8820ffc2ab83e6fed3a7be463d9d
+    value: 67d59d33615e394d2e9e5a43d09317da81bd4dfc
     forcestring: true
